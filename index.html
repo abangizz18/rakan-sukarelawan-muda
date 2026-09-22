@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rakan Sukarelawan Muda - Empowering Youth Volunteerism</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            green: '#10B981',
+                            blue: '#2563EB',
+                            yellow: '#F59E0B',
+                            dark: '#0F172A'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-gray-50 text-gray-800 font-sans flex flex-col min-h-screen">
+
+    <!-- NAVIGATION BAR -->
+    <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-gray-100 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <!-- Brand Logo -->
+            <div class="flex items-center gap-2 cursor-pointer" onclick="navigateTo('home')">
+                <span class="bg-brand-green text-white p-2 rounded-xl text-xl font-bold">
+                    <i class="fa-solid fa-hand-holding-heart"></i>
+                </span>
+                <span class="text-2xl font-extrabold tracking-tight text-brand-dark">Rakan <span class="text-brand-green">Sukarelawan Muda</span></span>
+            </div>
+
+            <!-- Desktop Navigation Links -->
+            <nav class="hidden lg:flex items-center gap-6 font-medium text-gray-600">
+                <button onclick="navigateTo('home')" class="nav-link text-brand-green font-semibold transition hover:text-brand-green" id="nav-home">Home</button>
+                <button onclick="navigateTo('about')" class="nav-link transition hover:text-brand-green" id="nav-about">About Us</button>
+                <button onclick="navigateTo('programme')" class="nav-link transition hover:text-brand-green" id="nav-programme">Programme</button>
+                <button onclick="navigateTo('activities')" class="nav-link transition hover:text-brand-green" id="nav-activities">Activities</button>
+                <button onclick="navigateTo('gallery')" class="nav-link transition hover:text-brand-green" id="nav-gallery">Gallery</button>
+            </nav>
+
+            <!-- Action Buttons -->
+            <div class="hidden lg:flex items-center gap-3">
+                <button onclick="navigateTo('join')" class="px-5 py-2.5 text-sm font-semibold text-brand-green border border-brand-green rounded-full hover:bg-emerald-50 transition">
+                    Join Us
+                </button>
+                <button onclick="openApplyModal()" class="px-5 py-2.5 text-sm font-semibold text-white bg-brand-green rounded-full shadow-lg shadow-emerald-500/20 hover:bg-emerald-600 transition">
+                    Apply Now
+                </button>
+            </div>
+
+            <!-- Mobile Menu Toggle Button -->
+            <button id="mobile-menu-btn" class="lg:hidden text-2xl text-gray-700 focus:outline-none">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Navigation Menu -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-white border-b px-4 pt-2 pb-6 space-y-3 shadow-lg">
+            <button onclick="navigateTo('home')" class="block w-full text-left py-2 text-gray-700 font-medium hover:text-brand-green">Home</button>
+            <button onclick="navigateTo('about')" class="block w-full text-left py-2 text-gray-700 font-medium hover:text-brand-green">About Us</button>
+            <button onclick="navigateTo('programme')" class="block w-full text-left py-2 text-gray-700 font-medium hover:text-brand-green">Programme</button>
+            <button onclick="navigateTo('activities')" class="block w-full text-left py-2 text-gray-700 font-medium hover:text-brand-green">Activities</button>
+            <button onclick="navigateTo('gallery')" class="block w-full text-left py-2 text-gray-700 font-medium hover:text-brand-green">Gallery</button>
+            <div class="pt-2 flex flex-col gap-2">
+                <button onclick="navigateTo('join')" class="w-full text-center py-2.5 text-sm font-semibold text-brand-green border border-brand-green rounded-xl">Join Us</button>
+                <button onclick="openApplyModal()" class="w-full text-center py-2.5 text-sm font-semibold text-white bg-brand-green rounded-xl">Apply Now</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- MAIN CONTENT AREA (PAGES) -->
+    <main class="flex-grow">
+        
+        <!-- PAGE 1: HOME -->
+        <section id="page-home" class="page-section">
+            <!-- Hero -->
+            <div class="relative bg-gradient-to-br from-emerald-50 via-teal-50 to-blue-50 py-20 lg:py-28">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-2 gap-12 items-center">
+                    <div class="space-y-6 text-center lg:text-left">
+                        <span class="inline-block px-4 py-1.5 bg-emerald-100 text-brand-green font-semibold text-sm rounded-full">🚀 Youth Volunteer Movement</span>
+                        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black text-brand-dark leading-tight">
+                            Empowering Youth, <span class="text-brand-green">Transforming</span> Communities.
+                        </h1>
+                        <p class="text-lg text-gray-600 max-w-xl mx-auto lg:mx-0">
+                            Join thousands of young changemakers making a real-world impact through community outreach, environmental drives, and youth mentorship.
+                        </p>
+                        <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                            <button onclick="navigateTo('programme')" class="px-8 py-3.5 bg-brand-green text-white font-semibold rounded-xl shadow-lg shadow-emerald-500/30 hover:bg-emerald-600 transition">
+                                Explore Programmes
+                            </button>
+                            <button onclick="navigateTo('join')" class="px-8 py-3.5 bg-white text-brand-dark border border-gray-200 font-semibold rounded-xl hover:bg-gray-50 transition">
+                                Join Us
+                            </button>
+                        </div>
+                    </div>
+                    <div class="relative flex justify-center">
+                        <div class="w-full max-w-md lg:max-w-none bg-white p-4 rounded-3xl shadow-2xl border border-gray-100">
+                            <img src="https://images.unsplash.com/photo-1559027615-cd4628902d4a?auto=format&fit=crop&w=800&q=80" alt="Volunteers" class="rounded-2xl w-full h-80 object-cover">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Impact Stats -->
+            <div class="bg-brand-dark text-white py-12">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+                    <div>
+                        <h3 class="text-3xl lg:text-4xl font-extrabold text-brand-green">5,000+</h3>
+                        <p class="text-gray-400 mt-1 text-sm">Active Volunteers</p>
+                    </div>
+                    <div>
+                        <h3 class="text-3xl lg:text-4xl font-extrabold text-brand-green">120+</h3>
+                        <p class="text-gray-400 mt-1 text-sm">Completed Projects</p>
+                    </div>
+                    <div>
+                        <h3 class="text-3xl lg:text-4xl font-extrabold text-brand-green">15,000+</h3>
+                        <p class="text-gray-400 mt-1 text-sm">Lives Touched</p>
+                    </div>
+                    <div>
+                        <h3 class="text-3xl lg:text-4xl font-extrabold text-brand-green">50+</h3>
+                        <p class="text-gray-400 mt-1 text-sm">NGO Partners</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PAGE 2: ABOUT US -->
+        <section id="page-about" class="page-section hidden py-16">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-3xl mx-auto mb-16">
+                    <span class="text-brand-green font-bold text-sm uppercase tracking-wider">Who We Are</span>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-brand-dark mt-2">Driven by Youth, Focused on Change</h2>
+                    <p class="mt-4 text-gray-600 leading-relaxed">Rakan Sukarelawan Muda was founded with a mission to bridge the gap between passionate youth and grassroot social causes. We believe every young person has the potential to build better communities.</p>
+                </div>
+
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="p-8 bg-white rounded-2xl shadow-sm border border-gray-100 text-center">
+                        <div class="w-16 h-16 bg-emerald-100 text-brand-green rounded-2xl flex items-center justify-center text-2xl mx-auto mb-6">
+                            <i class="fa-solid fa-bullseye"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-brand-dark mb-3">Our Mission</h3>
+                        <p class="text-gray-600 text-sm">To provide accessible volunteer opportunities that inspire personal growth and sustainable community development.</p>
+                    </div>
+                    <div class="p-8 bg-white rounded-2xl shadow-sm border border-gray-100 text-center">
+                        <div class="w-16 h-16 bg-blue-100 text-brand-blue rounded-2xl flex items-center justify-center text-2xl mx-auto mb-6">
+                            <i class="fa-solid fa-eye"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-brand-dark mb-3">Our Vision</h3>
+                        <p class="text-gray-600 text-sm">A society where young leaders actively drive positive social, educational, and environmental progress.</p>
+                    </div>
+                    <div class="p-8 bg-white rounded-2xl shadow-sm border border-gray-100 text-center">
+                        <div class="w-16 h-16 bg-amber-100 text-brand-yellow rounded-2xl flex items-center justify-center text-2xl mx-auto mb-6">
+                            <i class="fa-solid fa-heart"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-brand-dark mb-3">Core Values</h3>
+                        <p class="text-gray-600 text-sm">Empathy, Action, Leadership, Transparency, and Community Empowerment in everything we do.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PAGE 3: PROGRAMME -->
+        <section id="page-programme" class="page-section hidden py-16 bg-gray-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-2xl mx-auto mb-12">
+                    <span class="text-brand-green font-bold text-sm uppercase tracking-wider">Our Core Programmes</span>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-brand-dark mt-2">Structured Initiatives for Impact</h2>
+                    <p class="mt-2 text-gray-600">Explore our flagship long-term volunteer programmes.</p>
+                </div>
+
+                <div class="grid md:grid-cols-3 gap-8">
+                    <!-- Programme 1 -->
+                    <div class="bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100">
+                        <img src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&w=600&q=80" alt="Green Earth Initiative" class="h-48 w-full object-cover">
+                        <div class="p-6">
+                            <span class="px-3 py-1 bg-emerald-100 text-brand-green text-xs font-semibold rounded-full">Environment</span>
+                            <h3 class="text-xl font-bold text-brand-dark mt-3 mb-2">Green Earth Initiative</h3>
+                            <p class="text-gray-600 text-sm mb-6">Tree planting, beach conservation, and urban recycling workshops designed for youth advocates.</p>
+                            <button onclick="openApplyModal('Green Earth Initiative')" class="w-full py-2.5 bg-brand-green text-white font-semibold rounded-xl hover:bg-emerald-600 transition">Apply Now</button>
+                        </div>
+                    </div>
+                    <!-- Programme 2 -->
+                    <div class="bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100">
+                        <img src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?auto=format&fit=crop&w=600&q=80" alt="Food Relief" class="h-48 w-full object-cover">
+                        <div class="p-6">
+                            <span class="px-3 py-1 bg-blue-100 text-brand-blue text-xs font-semibold rounded-full">Community</span>
+                            <h3 class="text-xl font-bold text-brand-dark mt-3 mb-2">Urban Food Care</h3>
+                            <p class="text-gray-600 text-sm mb-6">Weekly food bank packaging and distribution drives targeting low-income urban settlements.</p>
+                            <button onclick="openApplyModal('Urban Food Care')" class="w-full py-2.5 bg-brand-green text-white font-semibold rounded-xl hover:bg-emerald-600 transition">Apply Now</button>
+                        </div>
+                    </div>
+                    <!-- Programme 3 -->
+                    <div class="bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100">
+                        <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=600&q=80" alt="Youth Mentorship" class="h-48 w-full object-cover">
+                        <div class="p-6">
+                            <span class="px-3 py-1 bg-amber-100 text-brand-yellow text-xs font-semibold rounded-full">Education</span>
+                            <h3 class="text-xl font-bold text-brand-dark mt-3 mb-2">Tech Mentors for Kids</h3>
+                            <p class="text-gray-600 text-sm mb-6">Teaching fundamental digital literacy and basic coding skills to underprivileged children.</p>
+                            <button onclick="openApplyModal('Tech Mentors for Kids')" class="w-full py-2.5 bg-brand-green text-white font-semibold rounded-xl hover:bg-emerald-600 transition">Apply Now</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PAGE 4: ACTIVITIES -->
+        <section id="page-activities" class="page-section hidden py-16">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-2xl mx-auto mb-12">
+                    <span class="text-brand-green font-bold text-sm uppercase tracking-wider">Upcoming & Recent Events</span>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-brand-dark mt-2">Volunteer Activities Calendar</h2>
+                    <p class="mt-2 text-gray-600">Join our upcoming weekend activities and workshops.</p>
+                </div>
+
+                <div class="space-y-4 max-w-4xl mx-auto">
+                    <!-- Activity 1 -->
+                    <div class="p-6 bg-white rounded-2xl border border-gray-100 shadow-sm flex flex-col sm:flex-row items-center justify-between gap-4">
+                        <div class="flex items-center gap-4">
+                            <div class="bg-emerald-50 text-brand-green p-4 rounded-xl text-center min-w-[80px]">
+                                <span class="block text-2xl font-black">24</span>
+                                <span class="text-xs font-bold uppercase">OCT 2026</span>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-bold text-brand-dark">Beach Cleanup Campaign</h3>
+                                <p class="text-gray-500 text-sm"><i class="fa-solid fa-location-dot text-gray-400 mr-1"></i> Pantai Morib, Selangor</p>
+                            </div>
+                        </div>
+                        <button onclick="openApplyModal('Beach Cleanup Campaign')" class="w-full sm:w-auto px-6 py-2.5 bg-brand-green text-white text-sm font-semibold rounded-xl hover:bg-emerald-600 transition">Apply Now</button>
+                    </div>
+
+                    <!-- Activity 2 -->
+                    <div class="p-6 bg-white rounded-2xl border border-gray-100 shadow-sm flex flex-col sm:flex-row items-center justify-between gap-4">
+                        <div class="flex items-center gap-4">
+                            <div class="bg-blue-50 text-brand-blue p-4 rounded-xl text-center min-w-[80px]">
+                                <span class="block text-2xl font-black">05</span>
+                                <span class="text-xs font-bold uppercase">NOV 2026</span>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-bold text-brand-dark">Soup Kitchen Evening Service</h3>
+                                <p class="text-gray-500 text-sm"><i class="fa-solid fa-location-dot text-gray-400 mr-1"></i> Chow Kit, Kuala Lumpur</p>
+                            </div>
+                        </div>
+                        <button onclick="openApplyModal('Soup Kitchen Service')" class="w-full sm:w-auto px-6 py-2.5 bg-brand-green text-white text-sm font-semibold rounded-xl hover:bg-emerald-600 transition">Apply Now</button>
+                    </div>
+
+                    <!-- Activity 3 -->
+                    <div class="p-6 bg-white rounded-2xl border border-gray-100 shadow-sm flex flex-col sm:flex-row items-center justify-between gap-4">
+                        <div class="flex items-center gap-4">
+                            <div class="bg-amber-50 text-brand-yellow p-4 rounded-xl text-center min-w-[80px]">
+                                <span class="block text-2xl font-black">12</span>
+                                <span class="text-xs font-bold uppercase">NOV 2026</span>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-bold text-brand-dark">Youth Leadership Workshop</h3>
+                                <p class="text-gray-500 text-sm"><i class="fa-solid fa-location-dot text-gray-400 mr-1"></i> Online (Zoom)</p>
+                            </div>
+                        </div>
+                        <button onclick="openApplyModal('Leadership Workshop')" class="w-full sm:w-auto px-6 py-2.5 bg-brand-green text-white text-sm font-semibold rounded-xl hover:bg-emerald-600 transition">Apply Now</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PAGE 5: GALLERY -->
+        <section id="page-gallery" class="page-section hidden py-16 bg-gray-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-2xl mx-auto mb-12">
+                    <span class="text-brand-green font-bold text-sm uppercase tracking-wider">Memories & Impact</span>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-brand-dark mt-2">Volunteer Photo Gallery</h2>
+                    <p class="mt-2 text-gray-600">Moments of impact captured during our community activities.</p>
+                </div>
+
+                <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+                    <img src="https://images.unsplash.com/photo-1559027615-cd4628902d4a?auto=format&fit=crop&w=600&q=80" alt="Gallery 1" class="rounded-2xl h-64 w-full object-cover hover:opacity-90 transition">
+                    <img src="https://images.unsplash.com/photo-1618477461853-cf6ed80faba5?auto=format&fit=crop&w=600&q=80" alt="Gallery 2" class="rounded-2xl h-64 w-full object-cover hover:opacity-90 transition">
+                    <img src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?auto=format&fit=crop&w=600&q=80" alt="Gallery 3" class="rounded-2xl h-64 w-full object-cover hover:opacity-90 transition">
+                    <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=600&q=80" alt="Gallery 4" class="rounded-2xl h-64 w-full object-cover hover:opacity-90 transition">
+                    <img src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&w=600&q=80" alt="Gallery 5" class="rounded-2xl h-64 w-full object-cover hover:opacity-90 transition">
+                    <img src="https://images.unsplash.com/photo-1593113598332-cd288d649433?auto=format&fit=crop&w=600&q=80" alt="Gallery 6" class="rounded-2xl h-64 w-full object-cover hover:opacity-90 transition">
+                </div>
+            </div>
+        </section>
+
+        <!-- PAGE 6: JOIN US -->
+        <section id="page-join" class="page-section hidden py-16">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-12">
+                    <span class="text-brand-green font-bold text-sm uppercase tracking-wider">Become a Member</span>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-brand-dark mt-2">Join the Rakan Sukarelawan Muda Family</h2>
+                    <p class="mt-2 text-gray-600">Register as an active member to receive cause updates and leadership opportunities.</p>
+                </div>
+
+                <div class="bg-white p-8 rounded-3xl border border-gray-100 shadow-xl">
+                    <form onsubmit="handleRegistration(event)" class="space-y-6">
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-sm font-semibold text-gray-700 mb-2">First Name</label>
+                                <input type="text" required placeholder="John" class="w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-brand-green focus:outline-none">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-semibold text-gray-700 mb-2">Last Name</label>
+                                <input type="text" required placeholder="Doe" class="w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-brand-green focus:outline-none">
+                            </div>
+                        </div>
+
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-sm font-semibold text-gray-700 mb-2">Email Address</label>
+                                <input type="email" required placeholder="john@example.com" class="w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-brand-green focus:outline-none">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-semibold text-gray-700 mb-2">Phone Number</label>
+                                <input type="tel" required placeholder="+60 12-345 6789" class="w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-brand-green focus:outline-none">
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-semibold text-gray-700 mb-2">Select Primary Interest Area</label>
+                            <select class="w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-brand-green focus:outline-none">
+                                <option>Environmental Conservation</option>
+                                <option>Community Outreach & Food Banks</option>
+                                <option>Childhood Education & Tech Tutoring</option>
+                                <option>Event Operations & Logistics</option>
+                            </select>
+                        </div>
+
+                        <button type="submit" class="w-full py-4 bg-brand-green text-white font-bold rounded-xl shadow-lg shadow-emerald-500/30 hover:bg-emerald-600 transition">
+                            Complete Registration
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-gray-900 text-gray-400 py-12 border-t border-gray-800 mt-auto">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-4 gap-8">
+            <div class="space-y-4">
+                <div class="flex items-center gap-2 text-white">
+                    <span class="bg-brand-green p-1.5 rounded-lg text-lg"><i class="fa-solid fa-hand-holding-heart"></i></span>
+                    <span class="text-xl font-bold">Rakan Sukarelawan Muda</span>
+                </div>
+                <p class="text-sm">Connecting youth with meaningful volunteer opportunities nationwide.</p>
+            </div>
+            <div>
+                <h4 class="text-white font-semibold mb-4">Pages</h4>
+                <ul class="space-y-2 text-sm">
+                    <li><button onclick="navigateTo('home')" class="hover:text-white transition">Home</button></li>
+                    <li><button onclick="navigateTo('about')" class="hover:text-white transition">About Us</button></li>
+                    <li><button onclick="navigateTo('programme')" class="hover:text-white transition">Programme</button></li>
+                    <li><button onclick="navigateTo('activities')" class="hover:text-white transition">Activities</button></li>
+                    <li><button onclick="navigateTo('gallery')" class="hover:text-white transition">Gallery</button></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-white font-semibold mb-4">Social Media</h4>
+                <div class="flex gap-4 text-xl">
+                    <a href="#" class="hover:text-brand-green transition"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#" class="hover:text-brand-green transition"><i class="fa-brands fa-tiktok"></i></a>
+                    <a href="#" class="hover:text-brand-green transition"><i class="fa-brands fa-facebook"></i></a>
+                </div>
+            </div>
+            <div>
+                <h4 class="text-white font-semibold mb-4">Support</h4>
+                <p class="text-sm">Questions? Email us at:<br><span class="text-white">support@rakansukarelawanmuda.org</span></p>
+            </div>
+        </div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-12 pt-6 border-t border-gray-800 text-center text-xs text-gray-500">
+            &copy; 2026 Rakan Sukarelawan Muda. All rights reserved.
+        </div>
+    </footer>
+
+    <!-- APPLY NOW MODAL POPUP -->
+    <div id="apply-modal" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-2xl max-w-md w-full p-6 shadow-2xl relative">
+            <button onclick="closeApplyModal()" class="absolute top-4 right-4 text-gray-400 hover:text-gray-600 text-xl">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+            <h3 class="text-2xl font-bold text-brand-dark mb-1">Apply Now</h3>
+            <p class="text-sm text-gray-500 mb-6">Submit your application for upcoming volunteer drives.</p>
+
+            <form onsubmit="handleApplySubmit(event)" class="space-y-4">
+                <div>
+                    <label class="block text-xs font-semibold text-gray-700 mb-1">Full Name</label>
+                    <input type="text" required class="w-full px-3 py-2 border rounded-lg text-sm focus:ring-2 focus:ring-brand-green focus:outline-none">
+                </div>
+                <div>
+                    <label class="block text-xs font-semibold text-gray-700 mb-1">Email Address</label>
+                    <input type="email" required class="w-full px-3 py-2 border rounded-lg text-sm focus:ring-2 focus:ring-brand-green focus:outline-none">
+                </div>
+                <div>
+                    <label class="block text-xs font-semibold text-gray-700 mb-1">Programme / Event Name</label>
+                    <input type="text" id="modal-programme-input" placeholder="e.g. Beach Cleanup Drive" required class="w-full px-3 py-2 border rounded-lg text-sm focus:ring-2 focus:ring-brand-green focus:outline-none">
+                </div>
+                <div>
+                    <label class="block text-xs font-semibold text-gray-700 mb-1">Short Motivation</label>
+                    <textarea rows="3" placeholder="Why do you want to participate?" class="w-full px-3 py-2 border rounded-lg text-sm focus:ring-2 focus:ring-brand-green focus:outline-none"></textarea>
+                </div>
+                <button type="submit" class="w-full py-3 bg-brand-green text-white rounded-xl font-semibold hover:bg-emerald-600 transition">Submit Application</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT FOR PAGE SWITCHING & MODAL -->
+    <script>
+        // Page Navigation Function
+        function navigateTo(pageId) {
+            // Hide all pages
+            const pages = document.querySelectorAll('.page-section');
+            pages.forEach(page => page.classList.add('hidden'));
+
+            // Show selected page
+            const targetPage = document.getElementById(`page-${pageId}`);
+            if (targetPage) {
+                targetPage.classList.remove('hidden');
+            }
+
+            // Update Desktop Nav UI Link States
+            const navLinks = document.querySelectorAll('.nav-link');
+            navLinks.forEach(link => link.classList.remove('text-brand-green', 'font-semibold'));
+            
+            const activeNav = document.getElementById(`nav-${pageId}`);
+            if (activeNav) {
+                activeNav.classList.add('text-brand-green', 'font-semibold');
+            }
+
+            // Close mobile menu if open
+            document.getElementById('mobile-menu').classList.add('hidden');
+
+            // Scroll to top
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Mobile Menu Toggle
+        document.getElementById('mobile-menu-btn').addEventListener('click', () => {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        });
+
+        // Apply Modal Functions
+        function openApplyModal(programmeName = '') {
+            const modal = document.getElementById('apply-modal');
+            const input = document.getElementById('modal-programme-input');
+            if (programmeName) {
+                input.value = programmeName;
+            }
+            modal.classList.remove('hidden');
+        }
+
+        function closeApplyModal() {
+            document.getElementById('apply-modal').classList.add('hidden');
+        }
+
+        // Form Handlers
+        function handleApplySubmit(e) {
+            e.preventDefault();
+            alert("🎉 Application submitted successfully! We will contact you soon.");
+            closeApplyModal();
+            e.target.reset();
+        }
+
+        function handleRegistration(e) {
+            e.preventDefault();
+            alert("Welcome to Rakan Sukarelawan Muda! Your registration as a member was successful.");
+            e.target.reset();
+            navigateTo('home');
+        }
+    </script>
+</body>
+</html>
